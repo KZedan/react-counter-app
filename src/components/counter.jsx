@@ -15,7 +15,7 @@ class Counter extends Component {
           Increment
         </button>
         <button
-          onClick={() => onDelete(this.props.counter.id)}
+          onClick={() => onDelete(counter.id)}
           className="btn btn-danger btn-sm m-2"
         >
           Delete
@@ -25,13 +25,15 @@ class Counter extends Component {
   }
 
   getBadgeClasses() {
+    const { counter } = this.props;
     let classes = "badge m-2 badge-";
-    classes += this.props.counter.value === 0 ? "warning" : "primary";
+    classes += counter.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
-    const { value } = this.props.counter;
+    const { counter } = this.props;
+    const { value } = counter;
     return value === 0 ? "Zero" : value;
   }
 }
